@@ -1,0 +1,3 @@
+Diferença entre função e método:
+
+A função é global e o método é do objeto.

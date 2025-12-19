@@ -1,5 +1,11 @@
 #region Variables
 
+//vidas
+vida = 3
+
+//escudo
+escudo = 5
+
 //Defining a variable for the player's speed:
 vel = 2;
 
@@ -9,7 +15,10 @@ time_between_shots = 10;
 //Timer that will keep track of said delay:
 shot_timer = 0;
 
+//Shot level
+level_tiro = 1;
 
+powerup_time = 5;
 
 #endregion
 
@@ -17,19 +26,19 @@ shot_timer = 0;
 
 #region Methods
 
-//Creating a function for the player to move
+//Creating a function for the player to move 
 player_control = function()
 {
 	//Checking for the keys:
 	var _up, _down, _l, _r, _shoot
 
-	_up = keyboard_check(ord("W")) || keyboard_check(vk_up);
+	_up = keyboard_check(ord("W")) ///|| keyboard_check(vk_up);
 	//debugging up key:
 	//if(_up)
 	//show_debug_message("Para cima!");
 	
 	
-	_down = keyboard_check(ord("S")) or keyboard_check(vk_down);
+	_down = keyboard_check(ord("S"))// or keyboard_check(vk_down);
 	//debugging down key:
 	//if(_down)
 	//show_debug_message("Para trás!");
@@ -45,7 +54,7 @@ player_control = function()
 	//debugginh right key:
 	//if(_r) show_debug_message("Para a direita!")
 	
-	_shoot = keyboard_check(vk_space) or mouse_check_button(mb_left);
+//	_shoot = keyboard_check(vk_space) or mouse_check_button(mb_left);
 	//debugging shot key:
 	//if(_shoot) show_debug_message("BANG! POW! ZIM!");
 	
@@ -92,25 +101,127 @@ player_control = function()
 	shot_timer--;
 	
 	//Shooting
-	if(_shoot == true && shot_timer <= 0)
+	_shoot = keyboard_check(vk_space) or mouse_check_button(mb_left);
+	
+	if (_shoot && shot_timer <= 0) 
 	{
 		shot_timer = time_between_shots;
-		var _bullet = instance_create_layer(x, y, "tiro", obj_tiro);
-		_bullet.vspeed = -10;
-		audio_play_sound(som_tiro, 5, false);
+		audio_play_sound(som_tiro, 5, 0);
 		
-		//if(_bullet.y <= 0)
-		//{
-		//	instance_destroy(self);
-		//}
-	}
-	
+		if(level_tiro == 1)
+			{
+				tiro_1();	
+			}
 
-	//if (
+		else if(level_tiro == 2)
+			{
+			tiro_2();	
+			}
+		else if (level_tiro == 3)
+		{
+			tiro_1();
+			tiro_2();
+		}
+	}
+
 	
-	show_debug_message(y);
+//	show_debug_message(y);
 //	show_debug_message(shot_timer);
 	
 }
+
+
+draw_icon = function(_icone = spr_vida, _qtd = vida, _yposition = display_get_gui_height() - 20, _xposition = 20)
+{
+	var _gui_height = display_get_gui_height();
+	//var _xposition = h;
+	
+	
+	repeat(_qtd)
+	{
+		draw_sprite_ext(_icone, 0,_xposition, _yposition, 1, 1, 0, c_white, .5)
+		_xposition += 20;
+	}
+}
+
+tiro_1 = function()
+{
+	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro);
+	_bullet.vspeed = -10;
+}
+	
+tiro_2 = function()
+{
+	var _bullet = instance_create_layer(x - 10, y, "tiro", obj_tiro);
+	_bullet.vspeed = -10;
+	var _bullet = instance_create_layer(x + 10, y, "tiro", obj_tiro);
+	_bullet.vspeed = -10;
+
+}
+
+tiro_3 = function()
+{
+	tiro_1();
+	tiro_2();
+}
+
+loose_life = function()
+{
+	if (vida > 1)
+	{
+		vida--;	
+	}
+	else
+	{
+		instance_destroy();	
+	}
+}
+
+ativa_defesa = function()
+{
+	if(escudo > 0 && keyboard_check_pressed(ord("E")))
+	{
+		escudo--;	
+		var _tem_escudo = instance_create_layer(x, y, "escudo", obj_escudo);
+	}
+}
+
+//end_powerup = function() 
+//{
+//	tiro_1()
+//}
+
+//just found out a different way of declaring methods on gml which also works
+//function modular_tiro()
+//{
+//	var _mais = keyboard_check_pressed(vk_down);
+//	var _menos = keyboard_check_pressed(vk_up);
+
+
+//	if (_mais)
+//	{
+//		level_tiro += 1;	
+//	}
+
+//	if(_menos)
+//	{
+//		level_tiro -= 1;	
+//	}
+//}
+
+
+
+
+
+
+//layer_destroy_instances()
+
+
+
+
+
+
+
+
 
 #endregion
