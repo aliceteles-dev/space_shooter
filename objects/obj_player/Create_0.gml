@@ -6,6 +6,9 @@ vida = 3
 //escudo
 escudo = 5
 
+//escudo "ativo"
+meu_escudo = noone;
+
 //Defining a variable for the player's speed:
 vel = 2;
 
@@ -20,6 +23,10 @@ level_tiro = 1;
 
 powerup_time = 5;
 
+//invencibilidade
+tempo_inv = game_get_speed(gamespeed_fps);
+timer_inv = 2;
+
 #endregion
 
 
@@ -29,6 +36,8 @@ powerup_time = 5;
 //Creating a function for the player to move 
 player_control = function()
 {
+	timer_inv --;
+	
 	//Checking for the keys:
 	var _up, _down, _l, _r, _shoot
 
@@ -122,6 +131,10 @@ player_control = function()
 			tiro_1();
 			tiro_2();
 		}
+		else if (level_tiro == 4)
+		{
+			tiro_4()	
+		}
 	}
 
 	
@@ -146,15 +159,15 @@ draw_icon = function(_icone = spr_vida, _qtd = vida, _yposition = display_get_gu
 
 tiro_1 = function()
 {
-	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro);
+	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player);
 	_bullet.vspeed = -10;
 }
 	
 tiro_2 = function()
 {
-	var _bullet = instance_create_layer(x - 10, y, "tiro", obj_tiro);
+	var _bullet = instance_create_layer(x - 10, y, "tiro", obj_tiro_player);
 	_bullet.vspeed = -10;
-	var _bullet = instance_create_layer(x + 10, y, "tiro", obj_tiro);
+	var _bullet = instance_create_layer(x + 10, y, "tiro", obj_tiro_player);
 	_bullet.vspeed = -10;
 
 }
@@ -165,24 +178,72 @@ tiro_3 = function()
 	tiro_2();
 }
 
+tiro_4 = function()
+{
+	tiro_1();
+	var _bullet = instance_create_layer(x, y + 10, "tiro", obj_tiro_player);
+	_bullet.vspeed = 10;
+	_bullet.image_yscale = -1;
+	
+	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player);
+	_bullet.hspeed = 10;
+	_bullet.image_angle = 270;
+	_bullet.image_xscale = -1;
+	
+	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player);
+	_bullet.hspeed = -10;
+	_bullet.image_angle = 90;
+	
+	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player);
+	_bullet.hspeed = -5;
+	_bullet.vspeed = -5;
+	_bullet.image_angle = 225;
+	_bullet.image_yscale = -1;
+	
+	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player);
+	_bullet.hspeed = 5;
+	_bullet.vspeed = 5;
+	_bullet.image_angle = 225;
+	
+	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player);
+	_bullet.hspeed = 5;
+	_bullet.vspeed = -5;
+	_bullet.image_angle = 135;
+	_bullet.image_yscale = -1;
+	
+	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player);
+	_bullet.hspeed = -5;
+	_bullet.vspeed = 5;
+	_bullet.image_angle = 135;
+	
+	
+}
+
 loose_life = function()
 {
+	if timer_inv > 0 return;
+	
 	if (vida > 1)
 	{
 		vida--;	
+		timer_inv = tempo_inv;
 	}
 	else
 	{
-		instance_destroy();	
+		instance_destroy();
+		instance_destroy(obj_escudo)
 	}
 }
 
 ativa_defesa = function()
 {
-	if(escudo > 0 && keyboard_check_pressed(ord("E")))
+	if(escudo > 0 && keyboard_check_pressed(ord("E")) && meu_escudo == noone)
 	{
 		escudo--;	
-		var _tem_escudo = instance_create_layer(x, y, "escudo", obj_escudo);
+		meu_escudo = instance_create_layer(x, y, "escudo", obj_escudo);
+		meu_escudo.x = x;
+		meu_escudo.y = y;
+		timer_inv = game_get_speed(gamespeed_fps) * 4;
 	}
 }
 

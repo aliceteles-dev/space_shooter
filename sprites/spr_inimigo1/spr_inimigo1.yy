@@ -28,7 +28,7 @@
   ],
   "name":"spr_inimigo1",
   "nineSlice":null,
-  "origin":4,
+  "origin":9,
   "parent":{
     "name":"Mobs",
     "path":"folders/Sprites/Mobs.yy",
@@ -96,7 +96,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":19,
-    "yorigin":27,
+    "yorigin":32,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

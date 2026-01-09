@@ -1,4 +1,7 @@
-if(image_index == 0 && image_speed < 0)
+//desativando o escudo
+if(image_index < 1 && image_speed < 0)
 {
 	instance_destroy();
+	obj_player.meu_escudo = noone;
 }
+

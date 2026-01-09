@@ -12,6 +12,6 @@ if (global.debug)
 
 
 //desenhando os ícones de escudo e vida do player
-draw_icon(spr_escudo, escudo, ,_gui_width - 100);
+draw_icon(spr_icone_escudo, escudo, ,_gui_width - 100);
 draw_icon();
 

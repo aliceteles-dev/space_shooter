@@ -1,3 +1,4 @@
+//ativando os controles do player utilizando este método
 player_control();
 
 //Mudando o valor do level do tiro
@@ -9,18 +10,29 @@ player_control();
 
 //modular_tiro();
 
-show_debug_message(alarm[0]);
 //modular_tiro()
-level_tiro = clamp(level_tiro, 1, 3);
+level_tiro = clamp(level_tiro, 1, 4);
 
+//ativando e desativando o debug
 if(keyboard_check(vk_tab))
 {
 	global.debug = !global.debug;
 }
 
+//debug pra fazer ele perder vida utilizando um método
 if (keyboard_check_pressed(vk_enter))
 {
 	loose_life();	
 }
 
+//chamando o método que permite controlar o escudo
 ativa_defesa();
+
+//fazendo o escudo seguir o player
+if (instance_exists(meu_escudo))
+{
+	obj_escudo.x = x;
+	obj_escudo.y = y;	
+}
+
+show_debug_message(timer_inv)

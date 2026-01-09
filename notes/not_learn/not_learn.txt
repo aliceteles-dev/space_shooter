@@ -1,3 +1,9 @@
-Diferença entre função e método:
-
+> Diferença entre função e método:
 A função é global e o método é do objeto.
+
+> No GameMaker, noone tem valor == -4
+
+> Documentação: return: you only use the return statement in script functions and methods, and it is used
+to return a value from the function to be used in further code or function calls. It should be noted that
+the execution of the function ends at the return statement, meaning that any code which comes after 
+return has been called will not be run.
