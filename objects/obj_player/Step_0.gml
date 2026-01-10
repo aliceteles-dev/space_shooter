@@ -35,4 +35,4 @@ if (instance_exists(meu_escudo))
 	obj_escudo.y = y;	
 }
 
-show_debug_message(timer_inv)
+//show_debug_message(timer_inv)
