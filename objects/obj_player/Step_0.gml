@@ -19,8 +19,18 @@ if(keyboard_check_pressed(vk_tab))
 	global.debug = !global.debug;
 }
 
+if (global.debug && keyboard_check_pressed(vk_up))
+{
+	level_tiro += 1;	
+}
+else if (global.debug && keyboard_check_pressed(vk_down))
+{
+	level_tiro -= 1;
+}
+	
+	
 //debug pra fazer ele perder vida utilizando um método
-if (keyboard_check_pressed(vk_enter))
+if (global.debug and keyboard_check_pressed(vk_enter))
 {
 	loose_life();	
 }

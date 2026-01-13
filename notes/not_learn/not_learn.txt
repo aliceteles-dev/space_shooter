@@ -13,3 +13,10 @@ Debugar: descobrir por que raios às vezes o power up faz o level do tiro subir 
 Sistema de parentesco: um objeto filho herda todo o código do objeto pai. Isso é muito interessante porque
 me poupa o trabalho de escrever todo o código de um inimigo novo do zero, quando o comportamento dele é
 extremamente semelhante ao de outro inimigo que eu já codei.
+
+Técnica de programação: 
+Máquina de estado ou state machine.
+A grosso modo, na programação orientada a objetos, é possível dividir um código entre vários estados. Aplicando
+à programação de jogos, um mob ou npc pode tomar várias ações distintas, ou seja, ter vários estados, e chamamos
+o tipo de código criado para programar isso de máquina de estado.
+No GameMaker, é possível criar um máquina de estado usando switch.

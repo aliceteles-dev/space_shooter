@@ -1,0 +1,2 @@
+other.loose_life();
+
