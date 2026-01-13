@@ -9,3 +9,7 @@ the execution of the function ends at the return statement, meaning that any cod
 return has been called will not be run.
 
 Debugar: descobrir por que raios às vezes o power up faz o level do tiro subir 2 unidades de uma só vez.
+
+Sistema de parentesco: um objeto filho herda todo o código do objeto pai. Isso é muito interessante porque
+me poupa o trabalho de escrever todo o código de um inimigo novo do zero, quando o comportamento dele é
+extremamente semelhante ao de outro inimigo que eu já codei.

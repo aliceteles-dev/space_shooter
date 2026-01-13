@@ -1,6 +1,7 @@
 timer_tiro = 0;
 tempo_tiro = game_get_speed(gamespeed_fps) * 2;
-vidas = 3;
+//vidas = 3;
+from_seq = in_sequence;
 
 disparo = function()
 {
@@ -20,8 +21,8 @@ drop = function()
 {
 	destroyed(obj_mob_explosion);
 	
-	var _chance = random_range(0, 100);
-	if (_chance > 60)
+	var _chance = random(100);
+	if (_chance > 95)
 	{
 		var _powerup = instance_create_layer(x, y, "power_up", obj_powerup);
 		_powerup.x += 2;

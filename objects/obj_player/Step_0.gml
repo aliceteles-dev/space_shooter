@@ -14,7 +14,7 @@ player_control();
 level_tiro = clamp(level_tiro, 1, 4);
 
 //ativando e desativando o debug
-if(keyboard_check(vk_tab))
+if(keyboard_check_pressed(vk_tab))
 {
 	global.debug = !global.debug;
 }

@@ -1,7 +1,7 @@
 #region Variables
 
 //vidas
-vida = 3
+vida = 5
 
 //escudo
 escudo = 5
@@ -135,6 +135,7 @@ player_control = function()
 		{
 			tiro_4()	
 		}
+		
 	}
 
 	
@@ -230,8 +231,8 @@ loose_life = function()
 	}
 	else
 	{
-		instance_destroy();
-		instance_destroy(obj_escudo)
+		destroyed(obj_mob_explosion);
+		instance_destroy(obj_escudo);
 	}
 }
 

@@ -1,6 +1,8 @@
+randomize();
+
 #region Variáveis
 
-global.debug = true
+global.debug = false;
 
 #endregion
 
@@ -10,8 +12,11 @@ global.debug = true
 //destruição do inimigo
 function destroyed(_particula = obj_particula_tiro)
 {
-	instance_destroy();
-	instance_create_layer(x, y, "particulas", _particula);
+	if (y > 16 && x > 16 && x < room_width - 16)
+	{
+		instance_destroy();
+		instance_create_layer(x, y, "particulas", _particula);
+	}
 }
 
 
