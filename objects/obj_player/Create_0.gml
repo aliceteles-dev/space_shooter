@@ -228,11 +228,13 @@ loose_life = function()
 	{
 		vida--;	
 		timer_inv = tempo_inv;
+		screenshake(20);
 	}
 	else
 	{
 		destroyed(obj_mob_explosion);
 		instance_destroy(obj_escudo);
+		screenshake(50);
 	}
 }
 

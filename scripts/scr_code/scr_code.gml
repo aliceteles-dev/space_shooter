@@ -19,8 +19,23 @@ function destroyed(_particula = obj_particula_tiro)
 	}
 }
 
-
-
+//função pra chamar a tremida de tela quando o player toma dano
+function screenshake(_tremble = 1)
+{
+	if (instance_exists(obj_screenshake))
+	{
+	//	obj_screenshake.tremble = _tremble;	
+		with(obj_screenshake)
+		{
+			if (_tremble > tremble)
+			{
+				tremble = _tremble;	
+			}
+		}
+	}
+		
+	
+}
 
 
 #endregion

@@ -11,6 +11,6 @@ layer_sequence_create("sq_mobwaves", 144, 256, waves[index]);
 if (index < array_length(waves) - 1)
 {
 	index += 1;
-	alarm[0] = 370;
+	alarm[0] = 340;
 	
 }

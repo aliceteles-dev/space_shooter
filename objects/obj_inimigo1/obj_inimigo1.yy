@@ -13,8 +13,8 @@
   "name":"obj_inimigo1",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Inimigo 1",
+    "path":"folders/Objects/Mobs/Inimigo 1.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -22,7 +22,7 @@ drop = function()
 	destroyed(obj_mob_explosion);
 	
 	var _chance = random(100);
-	if (_chance > 95)
+	if (_chance > 98)
 	{
 		var _powerup = instance_create_layer(x, y, "power_up", obj_powerup);
 		_powerup.x += 2;
