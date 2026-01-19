@@ -115,7 +115,7 @@ player_control = function()
 	if (_shoot && shot_timer <= 0) 
 	{
 		shot_timer = time_between_shots;
-		audio_play_sound(som_tiro, 5, 0);
+		//audio_play_sound(som_tiro, 5, 0);
 		
 		if(level_tiro == 1)
 			{
@@ -160,16 +160,17 @@ draw_icon = function(_icone = spr_vida, _qtd = vida, _yposition = display_get_gu
 
 tiro_1 = function()
 {
-	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player);
-	_bullet.vspeed = -10;
+	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player_vertical);
+	//_bullet.vspeed = -10;
+	//show_debug_message(_bullet.vspeed);
 }
 	
 tiro_2 = function()
 {
-	var _bullet = instance_create_layer(x - 10, y, "tiro", obj_tiro_player);
-	_bullet.vspeed = -10;
-	var _bullet = instance_create_layer(x + 10, y, "tiro", obj_tiro_player);
-	_bullet.vspeed = -10;
+	var _bullet = instance_create_layer(x - 10, y, "tiro", obj_tiro_player_vertical);
+	//_bullet.vspeed = -10;
+	var _bullet = instance_create_layer(x + 10, y, "tiro", obj_tiro_player_vertical);
+	//_bullet.vspeed = -10;
 
 }
 
@@ -181,41 +182,52 @@ tiro_3 = function()
 
 tiro_4 = function()
 {
-	tiro_1();
-	var _bullet = instance_create_layer(x, y + 10, "tiro", obj_tiro_player);
-	_bullet.vspeed = 10;
+	tiro_1(); //obj_tiro_player_vertical
+	
+	var _bullet = instance_create_layer(x, y + 10, "tiro", obj_tiro_player_vertical);
+	//_bullet.vspeed = 10;
 	_bullet.image_yscale = -1;
 	
-	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player);
-	_bullet.hspeed = 10;
+	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player_horizontal);
+	//_bullet.hspeed = 10
 	_bullet.image_angle = 270;
 	_bullet.image_xscale = -1;
+
 	
-	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player);
-	_bullet.hspeed = -10;
+	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player_horizontal);
+	//_bullet.hspeed = -10;
 	_bullet.image_angle = 90;
 	
-	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player);
-	_bullet.hspeed = -5;
-	_bullet.vspeed = -5;
-	_bullet.image_angle = 225;
+	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player_diagonal); //finalmente está correto também
+	//_bullet.hspeed = -5;
+	//_bullet.vspeed = -5;
+	_bullet.image_angle = 45;
+	_bullet.direction = 135;
+	//_bullet.image_yscale = 3;
+	
+	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player_diagonal); //segundo correto 
+	//_bullet.hspeed = 5;
+	//_bullet.vspeed = 5;
+	_bullet.direction = 315;
+	_bullet.image_angle = 45;
+	_bullet.image_xscale = -1;
 	_bullet.image_yscale = -1;
+		
 	
-	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player);
-	_bullet.hspeed = 5;
-	_bullet.vspeed = 5;
-	_bullet.image_angle = 225;
+	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player_diagonal); //YAAAAAAAAAY!
+	//_bullet.hspeed = 5;
+	//_bullet.vspeed = -5;
+	_bullet.direction = 45;
+	_bullet.image_angle = 315;
+	_bullet.image_xscale = -1;
 	
-	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player);
-	_bullet.hspeed = 5;
-	_bullet.vspeed = -5;
-	_bullet.image_angle = 135;
+	
+	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player_diagonal); //correto, só falta 1
+	//_bullet.hspeed = -5;
+	//_bullet.vspeed = 5;
+	_bullet.direction = 225;
+	_bullet.image_angle = 315;
 	_bullet.image_yscale = -1;
-	
-	var _bullet = instance_create_layer(x, y, "tiro", obj_tiro_player);
-	_bullet.hspeed = -5;
-	_bullet.vspeed = 5;
-	_bullet.image_angle = 135;
 	
 	
 }

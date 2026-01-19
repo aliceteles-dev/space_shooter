@@ -45,6 +45,7 @@
   },
   "name":"Space Shooter",
   "resources":[
+    {"id":{"name":"not_afazeres","path":"notes/not_afazeres/not_afazeres.yy",},},
     {"id":{"name":"not_learn","path":"notes/not_learn/not_learn.yy",},},
     {"id":{"name":"obj_escudo","path":"objects/obj_escudo/obj_escudo.yy",},},
     {"id":{"name":"obj_inimigo1","path":"objects/obj_inimigo1/obj_inimigo1.yy",},},
@@ -57,7 +58,9 @@
     {"id":{"name":"obj_tiro_mob1","path":"objects/obj_tiro_mob1/obj_tiro_mob1.yy",},},
     {"id":{"name":"obj_tiro_mob3a","path":"objects/obj_tiro_mob3a/obj_tiro_mob3a.yy",},},
     {"id":{"name":"obj_tiro_mob3b","path":"objects/obj_tiro_mob3b/obj_tiro_mob3b.yy",},},
-    {"id":{"name":"obj_tiro_player","path":"objects/obj_tiro_player/obj_tiro_player.yy",},},
+    {"id":{"name":"obj_tiro_player_diagonal","path":"objects/obj_tiro_player_diagonal/obj_tiro_player_diagonal.yy",},},
+    {"id":{"name":"obj_tiro_player_horizontal","path":"objects/obj_tiro_player_horizontal/obj_tiro_player_horizontal.yy",},},
+    {"id":{"name":"obj_tiro_player_vertical","path":"objects/obj_tiro_player_vertical/obj_tiro_player_vertical.yy",},},
     {"id":{"name":"obj_waves","path":"objects/obj_waves/obj_waves.yy",},},
     {"id":{"name":"rm_jogo","path":"rooms/rm_jogo/rm_jogo.yy",},},
     {"id":{"name":"rm_tutorial","path":"rooms/rm_tutorial/rm_tutorial.yy",},},

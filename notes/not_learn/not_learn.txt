@@ -8,9 +8,7 @@ to return a value from the function to be used in further code or function calls
 the execution of the function ends at the return statement, meaning that any code which comes after 
 return has been called will not be run.
 
-Debugar: descobrir por que raios às vezes o power up faz o level do tiro subir 2 unidades de uma só vez.
-Debugar: por que eu não consigo aumentar a quantidade de tiros do inimigo três no repeat do case atirando2?
-Ele deveria criar um círculo de tiros ao redor do mob, mas eles ficam se amontoando em um espaço limitado.
+
 
 Sistema de parentesco: um objeto filho herda todo o código do objeto pai. Isso é muito interessante porque
 me poupa o trabalho de escrever todo o código de um inimigo novo do zero, quando o comportamento dele é
@@ -36,4 +34,4 @@ switch(variável)
 }	
 
 
-Criando um screenshake
+Note to self: queria fazer os tiros que são gerados ao mesmo tempo ficarem da mesma cor.

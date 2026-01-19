@@ -1,1 +1,0 @@
- if (y <= -32 || y>= room_height + 32 || x <= -64 || x>= room_width + 64) instance_destroy(self);
