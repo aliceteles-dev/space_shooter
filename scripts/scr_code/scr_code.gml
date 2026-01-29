@@ -38,4 +38,37 @@ function screenshake(_tremble = 1)
 }
 
 
+//fazendo o player piscar e efeito stretch and squash quando tomar dano
+function inicia_efeito_dano()
+{
+	damage = false;
+}
+
+function timer_efeito_branco(_tempo = 1)
+{
+	damage = _tempo;
+}
+
+function contador_eb()
+{
+	if (damage > 0) damage--;
+		
+}
+
+
+//configurando o som de explosão dos mobs
+function explosao_mob(_tom = 0.6)
+{
+	var _pitch = random_range(0.6, 1.2);
+	
+	if ((x >= 0 && x <= room_width) and (y >= 0 and y <= room_width))
+	{
+		audio_stop_sound(sfx_mob_explosion);
+		audio_play_sound(sfx_mob_explosion, 1, false, 1, 0, _tom);
+	}
+}
+
+
+
+
 #endregion

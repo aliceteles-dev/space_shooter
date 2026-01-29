@@ -1,0 +1,1 @@
+explosao_mob();

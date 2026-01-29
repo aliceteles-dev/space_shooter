@@ -9,10 +9,12 @@ disparo = function()
 	tempo_tiro --;
 
 	
-	if (tempo_tiro <= 0)
+	if (tempo_tiro <= 0 and (x >= 0 + 19 and x <= room_width - 19))
 	{
 		var _tempo_random = random_range(1, 2) * game_get_speed(gamespeed_fps);	
 		instance_create_layer(x, y, "tiro", obj_tiro_mob1);	
+		audio_stop_sound(sfx_tiro_mob);
+		audio_play_sound(sfx_tiro_mob, 0, 0);
 		tempo_tiro = _tempo_random;
 	}
 }

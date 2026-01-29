@@ -40,7 +40,7 @@
 //{
 //	hspeed = -1;
 //}
-lerpvalue = .1
+
 
 if (image_yscale == 1)
 {

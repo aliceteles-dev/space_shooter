@@ -3,7 +3,23 @@ Debugar: por que eu não consigo aumentar a quantidade de tiros do inimigo três
 Ele deveria criar um círculo de tiros ao redor do mob, mas eles ficam se amontoando em um espaço limitado.
 
 
-Colocar efeito de velocidade no tiro do player (pra aumentar) usando o lerp.
+Colocar efeito de velocidade no tiro do player (pra aumentar) usando o lerp. - FEITO
 
 
 Descobrir por que eu não consigo fazer um círculo de tiros do mob 3 utilizando o repeat.
+
+
+Criar funções para o efeito stretch and squash, e substituí-las nos códigos do player.
+
+É uma boa rever a aula 120 - usando funções como parâmetro
+
+
+- Colocar um shader vermelho no inimigo 3 pra aparecer sempre que ele tomar um tiro.
+- Configurar o mob3 pra ele só começar a tomar dano depois que já tiver entrado totalmente na tela
+- Criar um sistema de levels
+	cada level é uma room nova
+	ao fim de cada level tem um boss
+	é isso
+- Adicionar sons do escudo
+- Colocar efeito de piscando e fazer o upgrade sumir da tela quando o efeito acabar
+- Adicionar um timer para o efeito do tiro passar depois de um tempo

@@ -29,7 +29,11 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v1","%Name":"musica_fundo","filters":[
+        "GMSound",
+      ],"listItems":[],"multiselect":false,"name":"musica_fundo","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"som_noiseattack","path":"sounds/som_noiseattack/som_noiseattack.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"som_noiseattack","varType":5,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,

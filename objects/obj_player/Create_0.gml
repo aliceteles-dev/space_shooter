@@ -1,13 +1,20 @@
+//musica
+audio_stop_all();
+audio_play_sound(musica_fundo, 1, true, 1.5, 0, 1);
+
 #region Variables
 
 //vidas
-vida = 5
+vida = 3;
 
 //escudo
-escudo = 5
+escudo = 3;
 
 //escudo "ativo"
 meu_escudo = noone;
+
+//ativada quando o player toma dano
+inicia_efeito_dano()
 
 //Defining a variable for the player's speed:
 vel = 2;
@@ -26,6 +33,10 @@ powerup_time = 5;
 //invencibilidade
 tempo_inv = game_get_speed(gamespeed_fps);
 timer_inv = 2;
+
+//efeito de stretch and squash sem alterar a máscara de colisão
+xscale = 1;
+yscale = 1;
 
 #endregion
 
@@ -115,7 +126,9 @@ player_control = function()
 	if (_shoot && shot_timer <= 0) 
 	{
 		shot_timer = time_between_shots;
-		//audio_play_sound(som_tiro, 5, 0);
+		xscale = 1.2;
+		yscale = .8;
+		audio_play_sound(sfx_tiro, 5, 0, 1, , choose(0.95, 1.08));
 		
 		if(level_tiro == 1)
 			{
@@ -241,6 +254,7 @@ loose_life = function()
 		vida--;	
 		timer_inv = tempo_inv;
 		screenshake(20);
+		timer_efeito_branco(10);
 	}
 	else
 	{

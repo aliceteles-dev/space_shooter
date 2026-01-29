@@ -37,7 +37,9 @@
     {"$GMFolder":"","%Name":"Tile Sets","folderPath":"folders/Tile Sets.yy","name":"Tile Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Timelines","folderPath":"folders/Timelines.yy","name":"Timelines","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
-  "IncludedFiles":[],
+  "IncludedFiles":[
+    {"$GMIncludedFile":"","%Name":"explosao_mob","CopyToMask":-1,"filePath":"datafiles","name":"explosao_mob","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+  ],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
@@ -73,7 +75,11 @@
     {"id":{"name":"sq_mobwave4b","path":"sequences/sq_mobwave4b/sq_mobwave4b.yy",},},
     {"id":{"name":"sq_mobwave5","path":"sequences/sq_mobwave5/sq_mobwave5.yy",},},
     {"id":{"name":"sq_mobwave5b","path":"sequences/sq_mobwave5b/sq_mobwave5b.yy",},},
-    {"id":{"name":"som_tiro","path":"sounds/som_tiro/som_tiro.yy",},},
+    {"id":{"name":"sh_branco","path":"shaders/sh_branco/sh_branco.yy",},},
+    {"id":{"name":"sfx_mob_explosion","path":"sounds/sfx_mob_explosion/sfx_mob_explosion.yy",},},
+    {"id":{"name":"sfx_tiro_mob","path":"sounds/sfx_tiro_mob/sfx_tiro_mob.yy",},},
+    {"id":{"name":"sfx_tiro","path":"sounds/sfx_tiro/sfx_tiro.yy",},},
+    {"id":{"name":"som_noiseattack","path":"sounds/som_noiseattack/som_noiseattack.yy",},},
     {"id":{"name":"spr_camada_0","path":"sprites/spr_camada_0/spr_camada_0.yy",},},
     {"id":{"name":"spr_camada_1","path":"sprites/spr_camada_1/spr_camada_1.yy",},},
     {"id":{"name":"spr_camada_2","path":"sprites/spr_camada_2/spr_camada_2.yy",},},

@@ -35,3 +35,7 @@ switch(variável)
 
 
 Note to self: queria fazer os tiros que são gerados ao mesmo tempo ficarem da mesma cor.
+
+Se alterar o image_xscale ou image_yscale de uma sprite, isso também altera a sua máscara de colisão.
+
+sprite_index = qual sprite você usa, enquanto image_index = qual índice da sprite você usa;
