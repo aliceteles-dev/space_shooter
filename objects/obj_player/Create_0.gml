@@ -258,7 +258,7 @@ loose_life = function()
 	}
 	else
 	{
-		destroyed(obj_mob_explosion);
+		destroyed(obj_explosao_player);
 		instance_destroy(obj_escudo);
 		screenshake(50);
 	}
@@ -270,6 +270,7 @@ ativa_defesa = function()
 	{
 		escudo--;	
 		meu_escudo = instance_create_layer(x, y, "escudo", obj_escudo);
+		audio_play_sound(sfx_shieldup, 2, false);
 		meu_escudo.x = x;
 		meu_escudo.y = y;
 		timer_inv = game_get_speed(gamespeed_fps) * 4;
