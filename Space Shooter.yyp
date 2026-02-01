@@ -47,6 +47,7 @@
   },
   "name":"Space Shooter",
   "resources":[
+    {"id":{"name":"fnt_menu","path":"fonts/fnt_menu/fnt_menu.yy",},},
     {"id":{"name":"not_afazeres","path":"notes/not_afazeres/not_afazeres.yy",},},
     {"id":{"name":"not_learn","path":"notes/not_learn/not_learn.yy",},},
     {"id":{"name":"obj_escudo","path":"objects/obj_escudo/obj_escudo.yy",},},
