@@ -4,6 +4,8 @@ randomize();
 
 global.debug = false;
 
+global.destino = rm_jogo;
+
 #endregion
 
 
@@ -68,7 +70,11 @@ function explosao_mob(_tom = 0.6)
 	}
 }
 
-
+//mudando a room a partir da transicao
+function sq_muda_room()
+{
+	room_goto(global.destino);
+}
 
 
 #endregion
