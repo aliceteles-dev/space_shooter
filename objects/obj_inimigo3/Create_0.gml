@@ -19,7 +19,7 @@ fleeing_direction = false;
 //timer_tiro = 0;
 //espera_entre_tiros = game_get_speed(gamespeed_fps);
 
-
+//hspeed = 1;
 
 //tiro_mob3 = function(_tiro = obj_tiro_mob3a)
 //{
@@ -102,10 +102,13 @@ state_machine = function()
 		
 		case "atirando":
 			//tiro_mob3(obj_tiro_mob3a);
+			var _pitch = random_range(.6, 0.8);
 			if (instance_exists(obj_player))
 			{
 				var _dir = point_direction(x, y, obj_player.x, obj_player.y);
 				var _tiro = instance_create_layer(x, y, "tiro", obj_tiro_mob3a);
+				audio_stop_sound(sfx_tiro_mob)
+				audio_play_sound(sfx_tiro_mob, 1, false, , , _pitch)
 				_tiro.speed = 2;
 				_tiro.direction = _dir;
 				_tiro.image_angle = _dir + 90;
@@ -120,12 +123,15 @@ state_machine = function()
 		case "atirando2":
 		{
 				var _angulo = 255;
+				var _pitch = random_range(.6, 0.8);
 			
 				repeat(3)
 				{
 					var _tiro2 = instance_create_layer(x, y, "tiro", obj_tiro_mob3b);
 					_tiro2.direction = _angulo;
 					_tiro2.speed = 4;
+					audio_stop_sound(sfx_tiro_mob);
+					audio_play_sound(sfx_tiro_mob, 1, false, , , _pitch);
 
 				
 				

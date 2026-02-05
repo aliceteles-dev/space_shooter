@@ -15,3 +15,4 @@ if (global.debug)
 draw_icon(spr_icone_escudo, escudo, _gui_height - 45);
 draw_icon();
 
+draw_text(x, y, estado);

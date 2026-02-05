@@ -5,10 +5,6 @@ Ele deveria criar um círculo de tiros ao redor do mob, mas eles ficam se amonto
 
 Colocar efeito de velocidade no tiro do player (pra aumentar) usando o lerp. - FEITO
 
-
-Descobrir por que eu não consigo fazer um círculo de tiros do mob 3 utilizando o repeat.
-
-
 Criar funções para o efeito stretch and squash, e substituí-las nos códigos do player.
 
 É uma boa rever a aula 120 - usando funções como parâmetro
@@ -16,10 +12,40 @@ Criar funções para o efeito stretch and squash, e substituí-las nos códigos 
 
 - Colocar um shader vermelho no inimigo 3 pra aparecer sempre que ele tomar um tiro.
 - Configurar o mob3 pra ele só começar a tomar dano depois que já tiver entrado totalmente na tela
-- Criar um sistema de levels
+- colocar som no tiro do mob3 - FEITO
+- Criar um sistema de levels - FEITO
 	cada level é uma room nova
-	ao fim de cada level tem um boss
+	ao fim de cada level tem um boss - não
 	é isso
-- Adicionar sons do escudo
-- Colocar efeito de piscando e fazer o upgrade sumir da tela quando o efeito acabar
-- Adicionar um timer para o efeito do tiro passar depois de um tempo
+- Adicionar sons do escudo - FEITO
+- Colocar efeito de piscando e fazer o upgrade sumir da tela quando o efeito acabar - FEITO
+- Adicionar um timer para o efeito do tiro passar depois de um tempo, -- quero que ele diminua sempre que o tempo passar, 
+de modo que o player precise sempre pegar mais powerups pra manter o nível -- e também é necessário fazer uma ui pra isso
+
+
+- chamar a transição de retorno ao menu sempre que o player morrer - FEITO
+	--> COLOCAR ESSA TRANSIÇÃO NUM SWITCH CASE PELO AMOR DE DEUS -FEITO YAAAAAAAAAAAY
+- criar uma transição do player y-- ao passar de fase - FEITO!!!!!!!!!!!!!!!!!!!!!!!!!!!
+- criar as próximas fases - FEITOOOOOO
+- conseguir assets coerentes para os bosses - FEITO
+- programar drop de escudo e de vida - FEITO FEITO SUPER FEITO
+- fazer os drops sumirem depois de um tempo - FEITO COM GLAMOUR
+- fazer os drops piscarem antes de sumir, para avisar o player - SIMMMMM!!!! FEITO
+	ideia: switch case, com variável para controlar
+- criar um tutorial para cada língua + uma variável global do idioma - não :'(
+- chamar o tutorial correto por código quando a room tutorial abrir - é, não rolou desta vez
+
+
+DAR créditos ao Nairan pela sprite do boss - não, o asset dele era enorme e usei minha própria arte
+https://foozlecc.itch.io/void-fleet-pack-2/download/eyJleHBpcmVzIjoxNzcwMjIzNDU2LCJpZCI6MTY2ODExOH0%3d.aHAvE3yooF6%2btMyxehevrr82go0%3d
+
+
+AFAZERES RESTANTES:
+- Adicionar um timer para o efeito do tiro passar depois de um tempo, -- quero que ele diminua sempre que o tempo passar, 
+de modo que o player precise sempre pegar mais powerups pra manter o nível -- e também é necessário fazer uma ui pra isso
+- Debugar: por que eu não consigo aumentar a quantidade de tiros do inimigo três no repeat do case atirando2?
+	Ele deveria criar um círculo de tiros ao redor do mob, mas eles ficam se amontoando em um espaço limitado.
+- Debugar: jogar uma partida inteira sem matar nenhum mob pra ver se eles se sobrepõem em algum momento
+- Criar as sprites de tiro do boss, pode ou não reaproveitar os tiros dos mobs e talvez até do player
+- Programar o boss para atacar o player e se movimentar pela tela, usar uma máquina de estado para fazer as fases do boss
+- Fazer com que o tiro do player destrua o tiro dos mobs após 3 acertos

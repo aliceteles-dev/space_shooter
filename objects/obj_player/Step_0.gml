@@ -19,6 +19,7 @@ if(keyboard_check_pressed(vk_tab))
 	global.debug = !global.debug;
 }
 
+
 //debug do level do tiro
 if (global.debug && keyboard_check_pressed(vk_up))
 {
@@ -51,7 +52,6 @@ if (instance_exists(meu_escudo))
 	obj_escudo.y = y;	
 }
 
-//show_debug_message(timer_inv)
 
 //efeito stretch and squash
 xscale = lerp(xscale, 1, .4);
@@ -60,3 +60,51 @@ yscale = lerp(yscale, 1, .4);
 
 //pra terminar o efeito do dano
 contador_eb();
+
+
+//chamando a transição de vitória
+//if (global.controle == true)
+//{
+//	timer_final++
+//}
+
+
+
+
+//if (timer_final >= global.acabou)
+//{
+//	ativa_transicao_vitoria();
+
+//}
+
+
+//if (!global.controle)
+//{
+//	//timer_final = 0;
+//	transicao_vitoria();
+
+//}
+
+//if (global.controle == false and x == 144 && y == 432)
+//{
+//	controla_transicao_vitoria();
+//}
+
+
+
+//nova_room();
+//controla_transicao_vitoria()
+
+//show_debug_message(timer_final);
+//show_debug_message(y);
+//show_debug_message(estado);
+
+
+if (room == rm_tutorial)
+{
+	estado = "jogando";	
+}
+else
+{
+	maquina_estado();
+}

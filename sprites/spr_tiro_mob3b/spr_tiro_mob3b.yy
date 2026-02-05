@@ -1,11 +1,11 @@
 {
   "$GMSprite":"",
   "%Name":"spr_tiro_mob3b",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":30,
   "bbox_left":0,
   "bbox_right":10,
-  "bbox_top":0,
+  "bbox_top":19,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,

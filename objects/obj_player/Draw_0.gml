@@ -13,3 +13,6 @@ if (damage)
 	//resetando o shader
 	shader_reset();
 }
+
+//fazendo ele ficar invisível para que a transição funcione
+//checar se o alarme >= 49, se x e y estão nas posiç

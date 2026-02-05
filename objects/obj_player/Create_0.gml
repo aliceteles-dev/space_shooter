@@ -28,7 +28,7 @@ shot_timer = 0;
 //Shot level
 level_tiro = 1;
 
-powerup_time = 5;
+//powerup_time = 5;
 
 //invencibilidade
 tempo_inv = game_get_speed(gamespeed_fps);
@@ -38,6 +38,17 @@ timer_inv = 2;
 xscale = 1;
 yscale = 1;
 
+
+//chamar a transição de vitória
+timer_final = 0;
+
+//máquina de estado:
+estado = "jogando"; //se posicionando, saindo da room e mudando de fase
+destino = rm_jogo2;
+
+
+//variavel de controle pro som do foguete só ser iniciado uma vez
+sound_on = false;
 #endregion
 
 
@@ -48,110 +59,111 @@ yscale = 1;
 player_control = function()
 {
 	timer_inv --;
-	
-	//Checking for the keys:
-	var _up, _down, _l, _r, _shoot
-
-	_up = keyboard_check(ord("W")) ///|| keyboard_check(vk_up);
-	//debugging up key:
-	//if(_up)
-	//show_debug_message("Para cima!");
-	
-	
-	_down = keyboard_check(ord("S"))// or keyboard_check(vk_down);
-	//debugging down key:
-	//if(_down)
-	//show_debug_message("Para trás!");
-
-	_l = keyboard_check(ord("A")) || keyboard_check(vk_left);
-	//debugging left key:
-	//if (_l == true)
-	//{
-	//	show_debug_message("Para a esquerda!")
-	//}
-	
-	_r = keyboard_check(ord("D")) || keyboard_check(vk_right);
-	//debugginh right key:
-	//if(_r) show_debug_message("Para a direita!")
-	
-//	_shoot = keyboard_check(vk_space) or mouse_check_button(mb_left);
-	//debugging shot key:
-	//if(_shoot) show_debug_message("BANG! POW! ZIM!");
-	
-	//Coding the actual movement
-	//if (_l)
-	//{
-	//	x -= vel;
-	//}
-	
-	//if(_r)
-	//{
-	//	x += vel;
-	//}
-	
-	//if(_down)
-	//{
-	//	y += vel
-	//}
-	
-	//if(_up)
-	//{
-	//	y -= vel;
-	//}
-	
-	//I commented the previous lines because I just learned a way better way to do it:
-	
-	//Horizontal movement:
-	var _velh = (_r - _l) * vel;
-	x += _velh;
-	//Viva a Matemágica! <3
-	
-	//Keeping the player inside the room
-	x = clamp(x, sprite_width/2, room_width - sprite_width/2)
-
-	//Vertical movement:
-	var _vely = (_down - _up) * vel;
-	y += _vely;
-	
-	//Keeping the player inside the room:
-	
-	y = clamp(y, sprite_height/2, room_height - sprite_height/2);
-	
-	//Diminishing the shot timer count
-	shot_timer--;
-	
-	//Shooting
-	_shoot = keyboard_check(vk_space) or mouse_check_button(mb_left);
-	
-	if (_shoot && shot_timer <= 0) 
+	if (global.controle)
 	{
-		shot_timer = time_between_shots;
-		xscale = 1.2;
-		yscale = .8;
-		audio_play_sound(sfx_tiro, 5, 0, 1, , choose(0.95, 1.08));
-		
-		if(level_tiro == 1)
-			{
-				tiro_1();	
-			}
+		//Checking for the keys:
+		var _up, _down, _l, _r, _shoot
 
-		else if(level_tiro == 2)
-			{
-			tiro_2();	
-			}
-		else if (level_tiro == 3)
-		{
-			tiro_1();
-			tiro_2();
-		}
-		else if (level_tiro == 4)
-		{
-			tiro_4()	
-		}
-		
-	}
-
+		_up = keyboard_check(ord("W")) ///|| keyboard_check(vk_up);
+		//debugging up key:
+		//if(_up)
+		//show_debug_message("Para cima!");
 	
+	
+		_down = keyboard_check(ord("S"))// or keyboard_check(vk_down);
+		//debugging down key:
+		//if(_down)
+		//show_debug_message("Para trás!");
+
+		_l = keyboard_check(ord("A")) || keyboard_check(vk_left);
+		//debugging left key:
+		//if (_l == true)
+		//{
+		//	show_debug_message("Para a esquerda!")
+		//}
+	
+		_r = keyboard_check(ord("D")) || keyboard_check(vk_right);
+		//debugginh right key:
+		//if(_r) show_debug_message("Para a direita!")
+	
+	//	_shoot = keyboard_check(vk_space) or mouse_check_button(mb_left);
+		//debugging shot key:
+		//if(_shoot) show_debug_message("BANG! POW! ZIM!");
+	
+		//Coding the actual movement
+		//if (_l)
+		//{
+		//	x -= vel;
+		//}
+	
+		//if(_r)
+		//{
+		//	x += vel;
+		//}
+	
+		//if(_down)
+		//{
+		//	y += vel
+		//}
+	
+		//if(_up)
+		//{
+		//	y -= vel;
+		//}
+	
+		//I commented the previous lines because I just learned a way better way to do it:
+	
+		//Horizontal movement:
+		var _velh = (_r - _l) * vel;
+		x += _velh;
+		//Viva a Matemágica! <3
+	
+		//Keeping the player inside the room
+		x = clamp(x, sprite_width/2, room_width - sprite_width/2)
+
+		//Vertical movement:
+		var _vely = (_down - _up) * vel;
+		y += _vely;
+	
+		//Keeping the player inside the room:
+	
+		y = clamp(y, sprite_height/2, room_height - sprite_height/2);
+	
+		//Diminishing the shot timer count
+		shot_timer--;
+	
+		//Shooting
+		_shoot = keyboard_check(vk_space) or mouse_check_button(mb_left);
+	
+		if (_shoot && shot_timer <= 0) 
+		{
+			shot_timer = time_between_shots;
+			xscale = 1.2;
+			yscale = .8;
+			audio_play_sound(sfx_tiro, 5, 0, 1, , choose(0.95, 1.08));
+		
+			if(level_tiro == 1)
+				{
+					tiro_1();	
+				}
+
+			else if(level_tiro == 2)
+				{
+				tiro_2();	
+				}
+			else if (level_tiro == 3)
+			{
+				tiro_1();
+				tiro_2();
+			}
+			else if (level_tiro == 4)
+			{
+				tiro_4()	
+			}
+		
+		}
+
+	}
 //	show_debug_message(y);
 //	show_debug_message(shot_timer);
 	
@@ -261,12 +273,14 @@ loose_life = function()
 		destroyed(obj_explosao_player);
 		instance_destroy(obj_escudo);
 		screenshake(50);
+		global.destino = rm_inicio;
+		layer_sequence_create("transicao", room_width / 2, room_height / 2, sq_transicao1);
 	}
 }
 
 ativa_defesa = function()
 {
-	if(escudo > 0 && keyboard_check_pressed(ord("E")) && meu_escudo == noone)
+	if(escudo > 0 && keyboard_check_pressed(ord("E")) && meu_escudo == noone && global.controle = true)
 	{
 		escudo--;	
 		meu_escudo = instance_create_layer(x, y, "escudo", obj_escudo);
@@ -276,6 +290,56 @@ ativa_defesa = function()
 		timer_inv = game_get_speed(gamespeed_fps) * 4;
 	}
 }
+
+//state machine
+maquina_estado = function()
+{
+	switch(estado)
+	{
+		case "jogando":
+			//checando se o player está no controle
+			if (global.controle)
+			{
+				//passar para o próximo estado de acordo com tempo de gameplay da room (vriable definitions)
+				//tempo_room e destino
+				timer_final++;
+			}
+			if (timer_final >= global.acabou)
+			{
+				estado = "posicionando";	
+			}
+		break;
+		
+		case "posicionando":
+			
+			//timer_final = 0;
+			global.controle = false;
+			transicao_vitoria();
+			
+			if (global.controle == false and x == 144 and y == 432)
+			{
+				estado = "saindo";
+			}
+		break;
+		
+		case "saindo":
+			controla_transicao_vitoria()
+			
+			if (sound_on == false)
+				{
+				audio_stop_all()
+				//não funciona porque ele está criando o som o tempo todo
+				audio_play_sound(sfx_changeroom, 5, false);
+				sound_on = true;
+				}		
+			nova_room();
+		break;
+		
+	}
+	
+}
+
+
 
 //end_powerup = function() 
 //{
@@ -316,3 +380,10 @@ ativa_defesa = function()
 
 
 #endregion
+
+
+layer_sequence_create("transicao", x, y, sq_transicao2);
+//global.transicao = true;
+
+
+

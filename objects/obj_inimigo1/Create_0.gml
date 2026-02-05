@@ -22,9 +22,16 @@ disparo = function()
 drop = function()
 {
 	destroyed(obj_mob_explosion);
+	var _powerup = choose(obj_escudoup, obj_vidaup, obj_powerup);
 	
 	var _chance = random(100);
-	if (_chance > 97.8)
+	if (_chance > 99)
+	{
+		var _powerup = instance_create_layer(x, y, "power_up", _powerup);
+		_powerup.x += 2;
+		_powerup.y -= 10;
+	}
+	else if (_chance >= 97)
 	{
 		var _powerup = instance_create_layer(x, y, "power_up", obj_powerup);
 		_powerup.x += 2;
