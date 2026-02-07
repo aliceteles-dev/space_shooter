@@ -1,5 +1,5 @@
 //salvando as waves num array
-waves = [sq_mobwave4b, sq_mobwave5_v2, sq_mobwave4, sq_mobwave1, sq_mobwave3b, sq_mobwave5b, sq_mobwave5, sq_mobwave2];
+waves = [sq_mobwave4b, sq_mobwave5_v2, sq_mobwave4, sq_mobwave1, sq_mobwave3b, sq_mobwave5b, sq_mobwave5, sq_mobwave2, sq_mobwave5];
 
 //variavel pra pegar o index da waves
 index = 0;

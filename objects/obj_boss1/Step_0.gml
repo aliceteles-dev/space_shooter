@@ -7,6 +7,13 @@
 maquina_de_estado();
 
 //show_debug_message(estado);
-show_debug_message(vida);
+show_debug_message(timer);
 
 //movimento();
+
+if (vida <= 0)
+{
+	instance_destroy();	
+}
+
+show_debug_message(vida);

@@ -3,7 +3,7 @@
 
 vel_zero()
 
-global.acabou = game_get_speed(gamespeed_fps) * 50;
+global.acabou = game_get_speed(gamespeed_fps) * 55;
 
 global.destino = rm_jogo3;
 

@@ -1,19 +1,19 @@
 {
   "$GMObject":"",
-  "%Name":"obj_tiro_mob3b",
+  "%Name":"obj_inimigo3b",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_tiro_mob3b",
+  "name":"obj_inimigo3b",
   "overriddenProperties":[],
   "parent":{
     "name":"Inimigo 3",
     "path":"folders/Objects/Mobs/Inimigo 3.yy",
   },
   "parentObjectId":{
-    "name":"obj_tiro_mob1",
-    "path":"objects/obj_tiro_mob1/obj_tiro_mob1.yy",
+    "name":"obj_inimigo3",
+    "path":"objects/obj_inimigo3/obj_inimigo3.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_tiro_mob3b",
-    "path":"sprites/spr_tiro_mob3b/spr_tiro_mob3b.yy",
+    "name":"spr_inimigo3",
+    "path":"sprites/spr_inimigo3/spr_inimigo3.yy",
   },
   "spriteMaskId":null,
   "visible":true,

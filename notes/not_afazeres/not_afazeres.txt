@@ -36,9 +36,6 @@ de modo que o player precise sempre pegar mais powerups pra manter o nível -- e
 - chamar o tutorial correto por código quando a room tutorial abrir - é, não rolou desta vez
 
 
-DAR créditos ao Nairan pela sprite do boss - não, o asset dele era enorme e usei minha própria arte
-https://foozlecc.itch.io/void-fleet-pack-2/download/eyJleHBpcmVzIjoxNzcwMjIzNDU2LCJpZCI6MTY2ODExOH0%3d.aHAvE3yooF6%2btMyxehevrr82go0%3d
-
 
 AFAZERES RESTANTES:
 - Adicionar um timer para o efeito do tiro passar depois de um tempo, -- quero que ele diminua sempre que o tempo passar, 
@@ -48,4 +45,16 @@ de modo que o player precise sempre pegar mais powerups pra manter o nível -- e
 - Debugar: jogar uma partida inteira sem matar nenhum mob pra ver se eles se sobrepõem em algum momento
 - Criar as sprites de tiro do boss, pode ou não reaproveitar os tiros dos mobs e talvez até do player
 - Programar o boss para atacar o player e se movimentar pela tela, usar uma máquina de estado para fazer as fases do boss
-- Fazer com que o tiro do player destrua o tiro dos mobs após 3 acertos
+- Fazer com que o tiro do player destrua o tiro dos mobs após 3 acertos - FEITO
+- Criar efeitos de explosão pra quando o boss morrer e fazer ele se destruir quando o hp for menor que 0
+- Juice it: fazer o boss demonstrar que tomou muito dano (efeitos) a cada -x pontos de vida que ele tiver
+- Se um powerup for spawnado fora da room, fazer ele entrar na room
+- A sala verde tem um momento vazio, é bom colocar mais uma nave nele
+- Consertar a direction do tiro guiado da nave verde
+- quando o player se choca contra um tiro inimigo, o tiro se destroi e cria a partícula de explosão váaaarias vezes.
+	Criar uma variável de controle pra me certificar que essa partícula seja criada uma vez só.
+- A luta contra o boss está fácil demais; dificultar o parry com os tiros dele
+- Trocar a segunda wave da sala verde e uma das últimas da sala vermelha pela seuqence nova que vou fazer
+
+MELHORIAS:
+- mudar o x do disparo em círculo do boss de acordo com a posição dele

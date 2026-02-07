@@ -12,6 +12,7 @@ player_control();
 
 //modular_tiro()
 level_tiro = clamp(level_tiro, 1, 4);
+meu_powerup = clamp(meu_powerup, 0, 3);
 
 //ativando e desativando o debug
 if(keyboard_check_pressed(vk_tab))
@@ -24,10 +25,12 @@ if(keyboard_check_pressed(vk_tab))
 if (global.debug && keyboard_check_pressed(vk_up))
 {
 	level_tiro += 1;	
+	meu_powerup += 1;
 }
 else if (global.debug && keyboard_check_pressed(vk_down))
 {
 	level_tiro -= 1;
+	meu_powerup -= 1;
 }
 
 //debug pra fazer ele perder vida utilizando um método

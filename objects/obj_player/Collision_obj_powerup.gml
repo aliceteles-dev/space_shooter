@@ -1,6 +1,7 @@
 instance_destroy(other);
 
 level_tiro ++;
+meu_powerup++;
 
 var _part = instance_create_layer(other.x, other.y, "particulas", obj_particula_tiro);
 //alarm[0] = game_get_speed(gamespeed_fps) * powerup_time;

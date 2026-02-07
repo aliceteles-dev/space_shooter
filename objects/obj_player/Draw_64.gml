@@ -11,8 +11,13 @@ if (global.debug)
 }
 
 
-//desenhando os ícones de escudo e vida do player
+//desenhando os ícones de escudo, vida e powerup do player
 draw_icon(spr_icone_escudo, escudo, _gui_height - 45);
 draw_icon();
+draw_icon(spr_icone_powerup, meu_powerup, _gui_height - 75);
 
-draw_text(x, y, estado);
+if (global.debug)
+{
+	draw_text(x, y, estado);
+}
+

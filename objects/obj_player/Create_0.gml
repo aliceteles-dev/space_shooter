@@ -5,7 +5,7 @@ audio_play_sound(musica_fundo, 1, true, 1.5, 0, 1);
 #region Variables
 
 //vidas
-vida = 3;
+vida = 150;
 
 //escudo
 escudo = 3;
@@ -49,6 +49,10 @@ destino = rm_jogo2;
 
 //variavel de controle pro som do foguete só ser iniciado uma vez
 sound_on = false;
+
+//definindo a variavel para controlar o icone do powerup
+meu_powerup = 0;
+
 #endregion
 
 
@@ -64,13 +68,13 @@ player_control = function()
 		//Checking for the keys:
 		var _up, _down, _l, _r, _shoot
 
-		_up = keyboard_check(ord("W")) ///|| keyboard_check(vk_up);
+		_up = keyboard_check(ord("W")) or keyboard_check(vk_up);  ///|| keyboard_check(vk_up);
 		//debugging up key:
 		//if(_up)
 		//show_debug_message("Para cima!");
 	
 	
-		_down = keyboard_check(ord("S"))// or keyboard_check(vk_down);
+		_down = keyboard_check(ord("S")) || keyboard_check(vk_down);// or keyboard_check(vk_down);
 		//debugging down key:
 		//if(_down)
 		//show_debug_message("Para trás!");
@@ -172,7 +176,7 @@ player_control = function()
 
 draw_icon = function(_icone = spr_vida, _qtd = vida, _yposition = display_get_gui_height() - 20, _xposition = 20)
 {
-	var _gui_height = display_get_gui_height();
+	//var _gui_height = display_get_gui_height();
 	//var _xposition = h;
 	
 	

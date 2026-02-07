@@ -178,7 +178,26 @@ function inicia_movimento()
 	vel_x = 1;
 }
 
+
+function inicia_movimento2()
+{
+	vel_x = 1;
+	vel_y = 1;
+}
+
 function movimento()
+{
+	x += vel_x;
+
+	if (x > room_width - (sprite_width / 2 - 10) or x < sprite_width / 2 - 10)
+	{
+		vel_x = -vel_x;
+	}	
+	
+}
+
+
+function movimento2()
 {
 	x += vel_x;
 

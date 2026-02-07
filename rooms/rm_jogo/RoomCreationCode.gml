@@ -5,7 +5,7 @@ vel_zero()
 
 global.controle = true;
 
-global.acabou = game_get_speed(gamespeed_fps) * 50;
+global.acabou = game_get_speed(gamespeed_fps) * 51;
 
 global.destino = rm_jogo2;
 

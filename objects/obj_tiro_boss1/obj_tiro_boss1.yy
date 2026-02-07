@@ -1,15 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"obj_tiro_mob3b",
+  "%Name":"obj_tiro_boss1",
   "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_tiro_mob3b",
+  "name":"obj_tiro_boss1",
   "overriddenProperties":[],
   "parent":{
-    "name":"Inimigo 3",
-    "path":"folders/Objects/Mobs/Inimigo 3.yy",
+    "name":"Boss 1",
+    "path":"folders/Objects/Mobs/Boss 1.yy",
   },
   "parentObjectId":{
     "name":"obj_tiro_mob1",

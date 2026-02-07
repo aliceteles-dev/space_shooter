@@ -4,4 +4,8 @@
 
 //y += vel_y;
 
-movimento();
+//movimento();
+
+//muda_posicao();
+
+tiro_solo();
