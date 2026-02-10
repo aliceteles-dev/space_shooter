@@ -5,12 +5,6 @@ estado = "normal";
 contagem = 15;
 cor = c_white;
 
-///me certificando que ele sempre vai spawnar dentro da room
-if (y <= 10)
-{
-	y = 15;	
-}
-
 
 maquina_estado = function()
 {

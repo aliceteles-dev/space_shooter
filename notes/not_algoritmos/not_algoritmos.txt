@@ -1,0 +1,45 @@
+Vou programar a explosão do boss assim:
+
+- se a vida do boss é menor ou igual a zero, ele vai criar x vezes, em posições variadas, a explosão, e vai se destruir em seguida 
+
+vou precisar de:
+
+a variavel pra definir o x:
+
+aleatorio1 = x - sprite_width/2
+aleatorio2 = x + sprite_width/2
+
+x_explosao = random(aleatorio1, aleatorio2);
+
+repete o processo com y
+
+
+criar variavel local pro pitch do som da explosão
+
+escolhe_explosao = choose(obj_explosao1, obj_explosao2) //isso aqui serve pra ele alternar entre as duas animações
+
+
+fui_derrotado = function();
+{
+	if(vida <= 0)
+	{
+		repeat(20)
+		{
+			instance_create_layer(x_explosao, y_explosao, "explosao", obj_explosao)
+			audio_play_sound(colocar o som da explosão)
+		}
+		
+		opcional: mandar ele fazer uma terceira explosão quando o repeat acabar, com a sprite de nuke e o som mais alto
+		
+	}
+}
+
+
+preciso ir no draw do obj_explosao e criar uma variável para que, a cada vez que ele for criado, ele escolha com qual
+sprite ele vai se desenhar.
+
+
+
+Créditos pelas sprites de explosão: ANSIMUZ.
+
+talvez seja melhor criar dois objetos de explosao e fazer o boss escolher por código qual objeto vai desenhar

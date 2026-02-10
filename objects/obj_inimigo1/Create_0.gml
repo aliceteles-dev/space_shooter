@@ -21,19 +21,25 @@ disparo = function()
 
 drop = function()
 {
+	var _x = x;
+	var _y = y;
+	
+	_x = clamp(x, 20, room_width - 20);
+	_y = clamp(y, 20, room_height - 20);
+	
 	destroyed(obj_mob_explosion);
-	var _powerup = choose(obj_escudoup, obj_vidaup, obj_powerup);
+	var _powerup = choose(obj_escudoup, obj_vidaup);
 	
 	var _chance = random(100);
 	if (_chance > 99)
 	{
-		var _powerup = instance_create_layer(x, y, "power_up", _powerup);
+		var _powerup = instance_create_layer(_x, _y, "power_up", _powerup);
 		_powerup.x += 2;
 		_powerup.y -= 10;
 	}
-	else if (_chance >= 97)
+	else if (_chance >= 95)
 	{
-		var _powerup = instance_create_layer(x, y, "power_up", obj_powerup);
+		var _powerup = instance_create_layer(_x, _y, "power_up", obj_powerup);
 		_powerup.x += 2;
 		_powerup.y -= 10;
 	}

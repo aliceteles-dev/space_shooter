@@ -111,3 +111,21 @@ else
 {
 	maquina_estado();
 }
+
+
+//diminuindo o powerup
+if (level_tiro > level_tiro_anterior)
+{
+	timer_powerup = 0;
+	level_tiro_anterior = level_tiro;
+}
+
+if (level_tiro_anterior > level_tiro)
+{
+	level_tiro_anterior = level_tiro;	
+}
+
+
+acabou_powerup();
+
+show_debug_message(timer_powerup);

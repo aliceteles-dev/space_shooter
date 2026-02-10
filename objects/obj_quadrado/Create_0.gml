@@ -1,11 +1,12 @@
-//inicia_movimento();
-
+//controlando o tempo entre os tiros 
 tempo = game_get_speed(gamespeed_fps) * 0.5;
 timer = 0;
 
+
+vida = 1;
+
 tiro_solo = function()
 {
-	
 	timer++;
 	
 	if (timer >= tempo)
@@ -16,73 +17,61 @@ tiro_solo = function()
 }
 
 
+//controlando a explosão do boss
+explodindo = false;
+contador_explosao = 0;
 
-//speed = 2;
-//direction = 270;
-//definindo velocidade
-//velx = 2;
-//vely = 2;
+//definindo onde cada explosão vai ser spawnada
+aleatorio1 = x - sprite_width/2
+aleatorio2 = x + sprite_width/2
+aleatorio3 = y - sprite_width/2
+aleatorio4 = y + sprite_width/2
 
-////definindo a variavel para swtichar
-//posicao = "emcima" // descendo, embaixo, subindo
 
-//muda_posicao = function()
-//{
-//	switch(posicao)
-//	{
+var x_explosao = random_range(aleatorio1, aleatorio2);
+var y_explosao = random_range(aleatorio3, aleatorio4);
 
-//		case "emcima":
+
+//definindo o áudio e a sprite de cada explosão
+var som = choose(sfx_tiro, sfx_mob_explosion);
+var minha_explosao = choose(obj_explosao_pequena1, obj_explosao_pequena2);
+
+//controlando o tempo da explosão
+timer_explosao = 0;
+tempo_explosao = game_get_speed(gamespeed_fps) * .1
+
+//criar variavel local pro pitch do som da explosão
+
+
+
+
+
+
+
+fui_derrotado = function()
+{
+	timer_explosao++;
+	explodindo = true;
 	
-//			x += velx;
-		
-//			if (x >= room_width - sprite_width / 2)// or x <= sprite_width / 2)
-//			{
-//				velx = -velx;
-//				posicao = "descendo"
-//			}
-//		break;
-		
-//		case "descendo":
-			
-//			y += 1;
-//			x += velx;
-			
-//			if (x <= sprite_width / 2)
-//			{
-//				velx = -velx
-//				posicao = "embaixo"
-//			}
-//		break;
-		
-//		case "embaixo":
-			
-//			x += velx;
-			
-//			if (x >= room_width - sprite_width / 2)
-//			{
-//				velx = -velx;
-//				posicao = "subindo";
-//			}
-//		break;
-		
-//		case "subindo":
-//		{
-//			y -= 1;
-//			x += velx;
-			
-//			if (x <= sprite_width / 2)
-//			{
-//				velx = -velx;
-//				posicao = "emcima";
-//			}
-//		}
-		
-//	}
-//}
+	var x_explosao = random_range(aleatorio1, aleatorio2);
+	var y_explosao = random_range(aleatorio3, aleatorio4);
 
 
-
-
+	//definindo o áudio e a sprite de cada explosão
+	var som = choose(sfx_boss_explosion1, sfx_boss_explosion2, sfx_boss_explosion3, sfx_mob_explosion);
+	var minha_explosao = choose(obj_explosao_pequena1, obj_explosao_pequena2);
+	
+	if(vida <= 0 and timer_explosao >= tempo_explosao)
+	{
+		instance_create_layer(x_explosao, y_explosao, "explosao", minha_explosao);	
+		audio_play_sound(som, 3, false);
+		contador_explosao++;
+		timer_explosao = 0;
+	}
+	
+	if contador_explosao >= 50 instance_destroy();
+	
+}
 
 
 

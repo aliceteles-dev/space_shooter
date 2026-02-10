@@ -5,7 +5,7 @@ audio_play_sound(musica_fundo, 1, true, 1.5, 0, 1);
 #region Variables
 
 //vidas
-vida = 150;
+vida = 3;
 
 //escudo
 escudo = 3;
@@ -53,11 +53,43 @@ sound_on = false;
 //definindo a variavel para controlar o icone do powerup
 meu_powerup = 0;
 
+//setando um timer pra diminuir o powerup
+timer_powerup = 0;
+tempo_powerup = game_get_speed(gamespeed_fps) * 15;
+
+
+// encontrando uma forma de controlar o timer do tiro do player
+level_tiro_anterior = level_tiro;
+
 #endregion
 
 
 
 #region Methods
+
+//metodo pra diminuir o powerup
+acabou_powerup = function()
+{
+	if (level_tiro < 2)
+	{
+		exit	
+	}
+	
+	if (level_tiro > 1)
+	{
+		timer_powerup++;
+	}
+	
+	
+	if (timer_powerup >= tempo_powerup and level_tiro > 1)
+	{
+		level_tiro--;	
+		meu_powerup--;
+		timer_powerup = 0;
+	}
+}
+
+
 
 //Creating a function for the player to move 
 player_control = function()

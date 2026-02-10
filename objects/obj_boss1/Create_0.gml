@@ -11,6 +11,8 @@
 
 /*as variações de estado serão: chegando, disparando, disparomovendo1, disparomaior,  */
 
+
+
 #region Variáveis	
 //vida na verdade vale 900
 vida = 900;
@@ -43,8 +45,30 @@ posicao = "emcima" // descendo, embaixo, subindo
 tempo = game_get_speed(gamespeed_fps) * 0.5;
 timer_disparo1_fase2 = 0;
 
+
+//variavel de controle pra iniciar a musica dele só uma vez
+toquei_musica = false;
+
+//controlando a explosão do boss
+explodindo = false;
+contador_explosao = 0;
+
+//definindo onde cada explosão vai ser spawnada
+aleatorio1 = x - sprite_width/2
+aleatorio2 = x + sprite_width/2
+aleatorio3 = y - sprite_width/2
+aleatorio4 = y + sprite_width/2
+
+//controlando o tempo da explosão
+timer_explosao = 0;
+tempo_explosao = game_get_speed(gamespeed_fps) * .1
+
+
+
 #endregion
 
+
+#region Métodos
 tiro_solo = function()
 {
 	
@@ -52,7 +76,10 @@ tiro_solo = function()
 	
 	if (timer_disparo1_fase2 >= tempo)
 	{
-		instance_create_layer(x, y, "tiro", obj_tiro_mob2);	
+		var _tiro = instance_create_layer(x, y, "tiro", obj_tiro_mob2);	
+		_tiro.vspeed = 4;
+		_tiro.image_xscale = 1.5;
+		_tiro.image_yscale = 1.5;
 		timer_disparo1_fase2 = 0;
 	}
 }
@@ -132,6 +159,40 @@ muda_posicao = function()
 		
 }
 
+//explosão do boss após derrota
+fui_derrotado = function()
+{
+	timer_explosao++;
+	explodindo = true;
+	
+	//var x_explosao = random_range(aleatorio1, aleatorio2);
+	//talvez usar bbox aqui seja melhor
+	var x_explosao = random_range(bbox_left, bbox_right);
+	var y_explosao = random_range(bbox_top, bbox_bottom);
+
+
+	//definindo o áudio e a sprite de cada explosão
+	var som = choose(sfx_boss_explosion1, sfx_boss_explosion2, sfx_boss_explosion3, sfx_mob_explosion);
+	var minha_explosao = choose(obj_explosao_pequena1, obj_explosao_pequena2);
+	
+	if(vida <= 0 and timer_explosao >= tempo_explosao)
+	{
+		instance_create_depth(x_explosao, y_explosao, depth - 100, minha_explosao);
+		//instance_create_layer(x_explosao, y_explosao, "explosao", minha_explosao);	
+		audio_play_sound(som, 3, false);
+		contador_explosao++;
+		timer_explosao = 0;
+		//screenshake(20);
+	}
+	
+	if (contador_explosao >= 100) 
+	{
+		instance_destroy();
+		obj_player.timer_final = global.acabou - 60;
+	}
+}
+
+
 maquina_de_estado = function()
 {
 	switch(estado)
@@ -166,7 +227,7 @@ maquina_de_estado = function()
 				timer = 0;
 			}
 			
-			if (vida <= 600)
+			if (vida <= 650)
 			{
 				estado = "disparo1_fase2";	
 			}
@@ -226,7 +287,7 @@ maquina_de_estado = function()
 			}
 			
 			//mudando de fase
-			if (vida <= 600)
+			if (vida <= 650)
 			{
 				estado = "disparo1_fase2";	
 			}
@@ -288,9 +349,17 @@ maquina_de_estado = function()
 				timer_spawn = 0;
 			}
 			
-			
+			if (vida <= 0)
+			{
+				estado = "morrendo";	
+			}
 			//estado = "disparo1_fase2";
+		break;
 		
+		case "morrendo":
+			fui_derrotado();
+			audio_stop_sound(som_aggressor);
+			screenshake(20)
 		
 		
 		
@@ -318,6 +387,9 @@ maquina_de_estado = function()
 	}
 }
 
+
+
+#endregion
 
 
 

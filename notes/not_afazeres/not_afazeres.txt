@@ -58,3 +58,12 @@ de modo que o player precise sempre pegar mais powerups pra manter o nível -- e
 
 MELHORIAS:
 - mudar o x do disparo em círculo do boss de acordo com a posição dele
+- vou aumentar o som do jogo de um modo geral porque agora abri ele com fone e não posso escutar nada...
+	-> volumes atuais: 
+	
+IMPORTANTE!!!!!
+- Cortar a Aggressor, música do boss, para eliminar os momentos de silêncio no início e final da track, criando assim o loop perfeito
+	
+	
+	
+	

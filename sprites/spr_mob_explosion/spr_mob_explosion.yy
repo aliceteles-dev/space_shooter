@@ -35,8 +35,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Mobs",
-    "path":"folders/Sprites/Mobs.yy",
+    "name":"Partículas",
+    "path":"folders/Sprites/Partículas.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
