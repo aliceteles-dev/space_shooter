@@ -23,4 +23,4 @@ maquina_de_estado();
 
 
 
-show_debug_message(vida);
+//show_debug_message(vida);

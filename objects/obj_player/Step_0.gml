@@ -15,10 +15,10 @@ level_tiro = clamp(level_tiro, 1, 4);
 meu_powerup = clamp(meu_powerup, 0, 3);
 
 //ativando e desativando o debug
-if(keyboard_check_pressed(vk_tab))
-{
-	global.debug = !global.debug;
-}
+//if(keyboard_check_pressed(vk_tab))
+//{
+//	global.debug = !global.debug;
+//}
 
 
 //debug do level do tiro
@@ -128,4 +128,4 @@ if (level_tiro_anterior > level_tiro)
 
 acabou_powerup();
 
-show_debug_message(timer_powerup);
+//show_debug_message(timer_powerup);

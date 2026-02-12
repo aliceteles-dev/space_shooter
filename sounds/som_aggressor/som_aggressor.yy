@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":238.8637,
+  "duration":230.50449,
   "name":"som_aggressor",
   "parent":{
     "name":"Sounds",

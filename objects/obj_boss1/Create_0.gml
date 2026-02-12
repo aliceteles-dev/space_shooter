@@ -75,11 +75,14 @@ tiro_solo = function()
 	timer_disparo1_fase2++;
 	
 	if (timer_disparo1_fase2 >= tempo)
-	{
-		var _tiro = instance_create_layer(x, y, "tiro", obj_tiro_mob2);	
-		_tiro.vspeed = 4;
-		_tiro.image_xscale = 1.5;
-		_tiro.image_yscale = 1.5;
+	{	
+		var _pitch = random_range(.6, 0.8);
+		audio_stop_sound(sfx_tiro_mob)
+		audio_play_sound(sfx_tiro_mob, 1, false, , , _pitch)
+		var _tiro = instance_create_layer(x, y, "tiro", obj_tiro_boss3);	
+		//_tiro.vspeed = 4;
+		//_tiro.image_xscale = 1.5;
+		//_tiro.image_yscale = 1.5;
 		timer_disparo1_fase2 = 0;
 	}
 }
@@ -227,7 +230,7 @@ maquina_de_estado = function()
 				timer = 0;
 			}
 			
-			if (vida <= 650)
+			if (vida <= 675)
 			{
 				estado = "disparo1_fase2";	
 			}
@@ -238,10 +241,13 @@ maquina_de_estado = function()
 			//timer = 0;
 			//timer++;
 			//entrei_no_estado = true;
+			var _pitch = random_range(.6, 0.8);
 			var _disparo = instance_create_layer(x - x/5, y, "tiro", obj_tiro_mob3a);
 			_disparo.vspeed = 5;
 			var _disparo = instance_create_layer(x + x/5, y, "tiro", obj_tiro_mob3a);
 			_disparo.vspeed = 5;
+			audio_stop_sound(sfx_tiro_mob)
+			audio_play_sound(sfx_tiro_mob, 1, false, , , _pitch)
 			estado = "carregando";
 			disparo_doispontozero++;
 			
@@ -271,6 +277,7 @@ maquina_de_estado = function()
 			//disparo do meio
 			if (timer == disparar_agora * 4)
 			{
+				var _pitch = random_range(.6, 0.8);
 				var _tiro2 = instance_create_layer(x, y, "tiro", obj_tiro_boss2);
 				
 				//disparo da esquerda e da direita
@@ -282,12 +289,15 @@ maquina_de_estado = function()
 				_tiro3.vspeed = 5;
 				_tiro3.direction = 285;
 				
+				audio_stop_sound(sfx_tiro_mob)
+				audio_play_sound(sfx_tiro_mob, 1, false, , , _pitch)
+				
 				timer = 0;
 				
 			}
 			
 			//mudando de fase
-			if (vida <= 650)
+			if (vida <= 675)
 			{
 				estado = "disparo1_fase2";	
 			}

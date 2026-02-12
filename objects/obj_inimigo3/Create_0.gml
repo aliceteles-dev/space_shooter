@@ -99,7 +99,7 @@ state_machine = function()
 			}
 				
 		break;
-		
+
 		case "atirando":
 			//tiro_mob3(obj_tiro_mob3a);
 			var _pitch = random_range(.6, 0.8);
